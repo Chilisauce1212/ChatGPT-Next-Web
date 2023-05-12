@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "yarn fetch && next dev",
     "build": "yarn fetch && next build",
-    "start": "next start",
+    "start": "sh ./scripts/init-proxy.sh && proxychains4 -f ./scripts/proxychains.conf next start -p 3001",
     "lint": "next lint",
     "fetch": "node ./scripts/fetch-prompts.mjs",
     "prepare": "husky install",
-    "proxy-dev": "sh ./scripts/init-proxy.sh && proxychains -f ./scripts/proxychains.conf yarn dev"
+    "proxy-dev": "sh ./scripts/init-proxy.sh && proxychains4 -f ./scripts/proxychains.conf yarn dev"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^16.2.0",
